@@ -1,9 +1,9 @@
 <?php
-require_once InterfacePerson;
+namespace Users;
 
-class ClassStudent implements InterfacePerson{
+class Student implements Person{
     
-    use TraitDigitalUser;
+    use DigitalUser;
     
     private $name;
     private $age;
@@ -19,9 +19,9 @@ class ClassStudent implements InterfacePerson{
         public function __toString(){
             $courses="";
             foreach ($this->courses as $course){
-                $courses.=$course;
+                $courses.="<br>".$course;
             }
-            return $this->name.$this->age.$this->email.$courses; 
+            return "nome: ".$this->name."<br>"."eta': ".$this->age."<br>"."email: ".$this->email."<br>"."corsi: ".$courses."<br>"; 
         }
         
             function getCourses(){
