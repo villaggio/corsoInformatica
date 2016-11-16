@@ -11,6 +11,6 @@ class Course {
         }
         
         public function __toString (){
-            return "nome corso: ".$this->name."<br>"."ore: ".$this->hours."<br>";
+            return "<br>"."- nome corso: ".$this->name."<br>"."ore: ".$this->hours;
         }
 }

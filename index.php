@@ -9,6 +9,7 @@ spl_autoload_register(function($class_name) {
 use Users\Student as Student;
 use Users\Course as Course;
 use Users\Teacher as Teacher;
+use Users\School as School;
 
 $gianni = new Student( "Gianni" , 14 , "gianni@gianni.it" ) ;
 $pippo = new Student ( "Pippo" , 16 , "pippo@pippo.com" );
@@ -30,8 +31,15 @@ $renzo->addCourse($analisi_matematica);
 
 echo "<br>".$gianni."<br>".$renzo."<br>".$pippo."<br>";
 
+$vdr = new School ("Villaggio del Ragazzo");
+$vdr->addStudent($gianni);
+$vdr->addStudent($pippo);
+$vdr->addStudent($renzo);
+
 $informatica = new Course ( "informatica" , 160 );
-$fabio_fazio = new Teacher ( "Fabio Fazio" , 35 , "fabio.fazio@villaggio.org" , $informatica);
+$fabio_fazio = new Teacher ( "Fabio Fazio" , 35 , "fabio.fazio@villaggio.org" , $informatica, $vdr);
 
 echo $fabio_fazio;
+
+
 
