@@ -15,12 +15,12 @@ $gianni = new Student( "Gianni" , 14 , "gianni@gianni.it" ) ;
 $pippo = new Student ( "Pippo" , 16 , "pippo@pippo.com" );
 $renzo = new Student ( "Renzo" , 18 , "renzo@renzo.org");
 
-echo $gianni."<br>".$renzo."<br>".$pippo."<br>";
+//echo $gianni."<br>".$renzo."<br>".$pippo."<br>";
 
 $fisica = new Course ( "fisica" , 230 );
 $analisi_matematica = new Course ( "analisi matematica" , 300 );
 
-echo "<br>".$fisica."<br>".$analisi_matematica."<br>";
+//echo "<br>".$fisica."<br>".$analisi_matematica."<br>";
 
 $gianni->addCourse($fisica);
 $gianni->addCourse($analisi_matematica);
@@ -29,7 +29,7 @@ $pippo->addCourse($fisica);
 
 $renzo->addCourse($analisi_matematica);
 
-echo "<br>".$gianni."<br>".$renzo."<br>".$pippo."<br>";
+//echo "<br>".$gianni."<br>".$renzo."<br>".$pippo."<br>";
 
 $vdr = new School ("Villaggio del Ragazzo");
 $vdr->addStudent($gianni);
@@ -39,7 +39,8 @@ $vdr->addStudent($renzo);
 $informatica = new Course ( "informatica" , 160 );
 $fabio_fazio = new Teacher ( "Fabio Fazio" , 35 , "fabio.fazio@villaggio.org" , $informatica, $vdr);
 
-echo $fabio_fazio;
+//echo $fabio_fazio;
+foreach ($gianni as $f){echo $f;} 
 
 
 

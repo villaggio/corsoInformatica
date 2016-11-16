@@ -1,7 +1,7 @@
 <?php
 namespace Users;
 
-class Student implements Person, Iterator {
+class Student implements \Iterator, Person {
     
     use DigitalUser;
     
@@ -20,12 +20,12 @@ class Student implements Person, Iterator {
         public function __toString(){
             $courses="";
             foreach ($this->courses as $course){
-                $courses.=$courses."<br>".$course;
+                $courses.="<br>".$course;
             }
             return "nome: ".$this->name."<br>"."eta': ".$this->age."<br>"."email: ".$this->email."<br>"."corsi: ".$courses."<br>"; 
         }
     
-    //----------------------------------------------------
+    //--------------------------------------------------------------------------
         
             public function getCourses(){
                 return $this->courses;
@@ -63,7 +63,7 @@ class Student implements Person, Iterator {
                     return isset($this->courses[$this->position]) || array_key_exists($this->position, $this->courses);                   
                 }
     
-    //----------------------------------------------------
+    //--------------------------------------------------------------------------
             
             function getName(){
                 return $this->name;
