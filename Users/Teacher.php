@@ -10,25 +10,33 @@ class Teacher extends Worker{
     private $course;
     private $company;
     private $school;
+    private $students = array();
     
-        public function __construct($name, $age, $email, Course $course=null, School $school=null){
+        public function __construct($name, $age, $email, Course $course=null, School $school=null, $company=null){
             $this->name=$name;
             $this->age=$age;
             $this->email=$email;
             $this->course=$course;
             $this->school=$school;
+            $this->company=$company;
+            
         }
 
         public function __toString (){
-            return "nome: ".$this->name."<br>"."eta': ".$this->age."<br>"."email: ".$this->email."<br>"."corso: ".$this->course."<br>".$this->school."<br>";
-        }
-            public function getCompany(){
-                return $this.company;
+            $stringa="";
+            foreach ($this->students as $student){
+                $stringa.="<br>".$student;
             }
             
-            public function setCompany ($company){
-                $this->company=$company;
-            }
+            return "nome: ".$this->name."<br>"."eta': ".$this->age."<br>"."email: ".$this->email."<br>"."corso: ".$this->course."<br>"."studenti: ".$stringa."<br>";
+        }
+//            public function getCompany(){
+//                return $this.company;
+//            }
+//            
+//            public function setCompany ($company){
+//                $this->company=$company;
+//            }
             
             function getName(){
                 return $this->name;
@@ -60,5 +68,15 @@ class Teacher extends Worker{
             
             public function setSchool(School $school){
                 $this->school=$school;
+            }
+            
+            public function getStudents(){
+                foreach ($this->school as $student){
+                    foreach($student as $course){
+                        if ($course===$this->course);
+                        array_push($this->students, $student);
+                    }
+                }
+                
             }
 }

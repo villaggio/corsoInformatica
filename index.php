@@ -38,9 +38,9 @@ $vdr->addStudent($renzo);
 
 $informatica = new Course ( "informatica" , 160 );
 $fabio_fazio = new Teacher ( "Fabio Fazio" , 35 , "fabio.fazio@villaggio.org" , $informatica, $vdr);
-
-//echo $fabio_fazio;
-foreach ($gianni as $f){echo $f;} 
+$renzo->addCourse($informatica);
+echo $fabio_fazio;
+//foreach ($gianni as $f){echo $f;} 
 
 
 

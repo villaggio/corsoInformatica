@@ -51,10 +51,6 @@ class Student implements \Iterator, Person {
                     $this->position++;
                 }
                 
-                public function previous(){
-                    $this->position--;
-                }
-                
                 public function rewind(){
                     $this->position = 0;
                 }
