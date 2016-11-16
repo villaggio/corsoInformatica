@@ -1,7 +1,7 @@
 <?php
 namespace Users;
 
-class Teacher implements Worker{
+class Teacher extends Worker{
     
     use DigitalUser;
     
