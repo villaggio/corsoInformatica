@@ -10,7 +10,6 @@ class Teacher extends Worker{
     private $course;
     private $company;
     private $school;
-    private $students = array();
     
         public function __construct($name, $age, $email, Course $course=null, School $school=null, $company=null){
             $this->name=$name;
@@ -24,11 +23,13 @@ class Teacher extends Worker{
 
         public function __toString (){
             $stringa="";
-            foreach ($this->students as $student){
+            foreach ($this->getStudents() as $student){
                 $stringa.="<br>".$student;
             }
             
-            return "nome: ".$this->name."<br>"."eta': ".$this->age."<br>"."email: ".$this->email."<br>"."corso: ".$this->course."<br>"."studenti: ".$stringa."<br>";
+            return "nome: ".$this->name."<br>"."eta': ".$this->age."<br>".
+                    "email: ".$this->email."<br>"."corso: "
+                    .$this->course."<br>"."studenti: ".$stringa."<br>";
         }
 //            public function getCompany(){
 //                return $this.company;
@@ -43,7 +44,7 @@ class Teacher extends Worker{
             }
             
             function setName($name){
-                $this->name=name;
+                $this->name=$name;
             }
             
             function getAge(){
@@ -70,13 +71,15 @@ class Teacher extends Worker{
                 $this->school=$school;
             }
             
-            public function getStudents(){
-                foreach ($this->school as $student){
-                    foreach($student as $course){
-                        if ($course===$this->course);
-                        array_push($this->students, $student);
+                public function getStudents(){
+                    $studs = [];
+                    foreach ($this->school as $student){
+                        foreach($student as $course){
+                            if ($course===$this->course){
+                                array_push($studs, $student);
+                            }
+                        }
                     }
+                    RETURN $studs;
                 }
-                
-            }
 }
