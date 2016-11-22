@@ -1,6 +1,7 @@
 <?php
-require_once "InterfacePerson.php";
-abstract class AbstractWorker implements InterfacePerson{
+namespace Models\Users;
+
+abstract class Worker implements Person{
     private $company;
     
     public function getCompany(){

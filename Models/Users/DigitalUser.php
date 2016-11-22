@@ -1,6 +1,7 @@
 <?php
+namespace Models\Users;
 
-trait TraitDigitalUser{
+trait DigitalUser{
     private $email;
     
         public function getEmail(){
