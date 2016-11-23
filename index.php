@@ -15,25 +15,33 @@ $gianni = new Student ( "Gianni" , 14 , "gianni@gianni.it" ) ;
 $pippo = new Student ( "Pippo" , 16 , "pippo@pippo.com" );
 $renzo = new Student ( "Renzo" , 18 , "renzo@renzo.org");
 
-$renzo->loadFromDb(3);
+echo "<hr><h3>Elenco studenti:</h3>".$gianni."<br>".$renzo."<br>".$pippo."<br>";
 
-die($renzo);
+$id = $renzo->save();
 
-//echo $gianni."<br>".$renzo."<br>".$pippo."<br>";
+echo "<hr><b>Renzo dal db con ID = $id:</b> ".Student::load($id)."<br>";
 
-$fisica = new Course ( "fisica" , 230 );
-$analisi_matematica = new Course ( "analisi matematica" , 300 );
+$renzo->setAge(55);
+$renzo->save();
 
-//echo "<br>".$fisica."<br>".$analisi_matematica."<br>";
+echo "<br><b>Renzo dal db appena aggiornato:</b> ".Student::load($id)."<br>";
+
+$renzo->remove();
+
+echo "<br><b>Renzo è stato rimosso dal DB</p><br>";
+
+$fisica = new Course ( "Fisica" , 230 );
+$analisi_matematica = new Course ( "Analisi Matematica" , 300 );
+
+echo "<h3>Due nuovi Corsi:</h3>".$fisica."<br>".$analisi_matematica."<br>";
 
 $gianni->addCourse($fisica);
 $gianni->addCourse($analisi_matematica);
 
 $pippo->addCourse($fisica);
-
 $renzo->addCourse($analisi_matematica);
 
-//echo "<br>".$gianni."<br>".$renzo."<br>".$pippo."<br>";
+echo "<h3>I tre studenti ora studiano e gianni è il secchione:</h3>".$gianni."<br>".$renzo."<br>".$pippo."<br>";
 
 $vdr = new School ("Villaggio del Ragazzo");
 $vdr->addStudent($gianni);

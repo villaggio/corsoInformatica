@@ -2,13 +2,17 @@
 
 namespace Models\Users;
 
-class School implements \Iterator{
+use \Iterator;
+
+class School implements Iterator {
     private $name;
+    private $address;
     private $students = array();
     private $position = 0;
     
-        public function __construct($name){
+        public function __construct($name, $address=""){
             $this->name=$name;
+            $this->address=$address;
         }
         
         public function __toString(){
@@ -19,31 +23,31 @@ class School implements \Iterator{
             return "scuola: $this->name<br>studenti:$stringa";
         }
         
-            public function addStudent(Student $student){
-                array_push ($this->students, $student);
-            }
-            
-            public function getStudents(){
-                return $this->students;
-            }
+        public function addStudent(Student $student){
+            array_push($this->students, $student);
+        }
 
-            public function current(){
-                    return $this->students[$this->position];
-                }
+        public function getStudents(){
+            return $this->students;
+        }
 
-            public function next(){
-                    $this->position++;
-                }
+        public function current(){
+            return $this->students[$this->position];
+        }
 
-            public function rewind(){
-                    $this->position = 0;
-                }
+        public function next(){
+            $this->position++;
+        }
 
-            public function key(){
-                    return $this->position;
-                }
+        public function rewind(){
+            $this->position = 0;
+        }
 
-            public function valid(){
-                    return isset($this->students[$this->position]) || array_key_exists($this->position, $this->students);
-                }
+        public function key(){
+            return $this->position;
+        }
+
+        public function valid(){
+            return isset($this->students[$this->position]) || array_key_exists($this->position, $this->students);
+        }
 }
