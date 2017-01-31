@@ -34,9 +34,15 @@ class Student extends Table implements Person {
 
     public function __toString(){
         $courses="";
-        foreach ($this->courses as $course){
-            $courses.="<br>".$course;
-        }
+        
+        $coursesArray = array_filter($this->courses, function($v){return ($v->getHours()>=250);});
+        
+        array_walk($coursesArray, function($v,$k)use(&$courses){$courses.="<br>".$course;});
+        
+//        foreach ($coursesArray as $course){
+//            $courses.="<br>".$course;
+//        }
+        
         return "nome: ".$this->name."<br>"."eta': ".$this->age."<br>"."email: ".$this->email."<br>"."corsi: ".$courses."<br>"; 
     }
 

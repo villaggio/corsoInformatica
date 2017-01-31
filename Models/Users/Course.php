@@ -10,6 +10,10 @@ class Course {
             $this->hours=$hours;
         }
         
+        public function getHours() {
+            return $this->hours;
+        }
+        
         public function __toString (){
             return "<br>"."- nome corso: ".$this->name."<br>"."ore: ".$this->hours;
         }
