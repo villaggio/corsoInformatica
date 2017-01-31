@@ -37,7 +37,7 @@ class Student extends Table implements Person {
         
         $coursesArray = array_filter($this->courses, function($v){return ($v->getHours()>=250);});
         
-        array_walk($coursesArray, function($v,$k)use(&$courses){$courses.="<br>".$course;});
+        array_walk($coursesArray, function($v,$k)use(&$courses){$courses.="<br>".$v;});
         
 //        foreach ($coursesArray as $course){
 //            $courses.="<br>".$course;
