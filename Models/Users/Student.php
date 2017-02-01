@@ -7,6 +7,8 @@ class Student extends Table implements Person {
     
     use DigitalUser;
     
+    // questa constante è necessaria per integrare questa classe con una tabella
+    // sul database. Sarà utilizzato da Table.php per la connessione in lettura/scruittura
     const TABLE_NAME = "student";
     
     protected $name;
@@ -23,8 +25,15 @@ class Student extends Table implements Person {
         $this->courses=$courses;
     }
     
+    /**
+     * Metodo richiesto per integrare l'oggetto con una tabella estendendo table.php
+     * Quesyo metodo avrà lo scopo di mappare tutti le proprietà dell oggetto studente
+     * con i nomi delle colonne sul database
+     * @return type
+     */
     static function getBindings(){
         return [
+            //"nome_colonna"=>"nome_parametro",
             "id"=>"id",
             "name"=>"name",
             "age"=>"age",
