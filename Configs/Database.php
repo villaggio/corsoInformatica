@@ -4,7 +4,7 @@ namespace Configs;
 class Database {
     const DATABASE = "corso_informatica";
     const HOST = "127.0.0.1";
-    const PORT = "3305";
+    const PORT = "3306";
     const TYPE = "mysql";
     const USERNAME = "admin";
     const PASSWORD = "admin";
